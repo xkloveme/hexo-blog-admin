@@ -1,0 +1,12 @@
+{
+  "i18n-ally.localesPaths": [
+    "src/locales"
+  ],
+  "i18n-ally.enabledParsers": [
+    "js"
+  ],
+  "i18n-ally.sourceLanguage": "en-US",
+  "i18n-ally.displayLanguage": "zh-CN",
+  "i18n-ally.keystyle": "nested",
+  "vue-i18n.i18nPaths": "src/locales"
+}

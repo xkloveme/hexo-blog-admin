@@ -1,0 +1,48 @@
+{
+  "name": "vite-tauri-template",
+  "version": "1.2.0",
+  "description": "Vite + Tauri + Vue 3 + Vuetify 3 desktop app template",
+  "keywords": [
+    "vite",
+    "tauri",
+    "vue",
+    "vuetify",
+    "desktop"
+  ],
+  "scripts": {
+    "lint": "exit 0;",
+    "dev": "npm run serve",
+    "tauri:dev": "vite-tauri dev",
+    "serve": "vite --host --port 8080",
+    "serve:native": "VITE_HTTP_HANDLER=NATIVE vite --port 8080",
+    "build": "vite-tauri build",
+    "build:web": "vite build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "1.0.0-beta.8",
+    "element-plus": "^2.0.1",
+    "vue": "3.2.20",
+    "vue-global-api": "0.4.1",
+    "vue-router": "4.0.11",
+    "ynetwork": "3.0.6"
+  },
+  "devDependencies": {
+    "@intlify/vite-plugin-vue-i18n": "^3.2.2",
+    "@tauri-apps/cli": "1.0.0-beta.10",
+    "@vitejs/plugin-vue": "1.9.4",
+    "sass": "1.43.4",
+    "sass-loader": "12.3.0",
+    "unplugin-auto-import": "^0.5.11",
+    "unplugin-vue-components": "^0.17.17",
+    "vite": "2.6.13",
+    "vite-plugin-tauri": "^0.1.12",
+    "vite-plugin-windicss": "^1.6.3",
+    "vue-i18n": "^9.2.0-beta.30",
+    "windicss": "^3.4.3"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/yooneskh/vite-tauri-template"
+  },
+  "license": "ISC"
+}
