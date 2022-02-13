@@ -1,17 +1,18 @@
-<script setup>
-
-</script>
-
 <template>
-  <v-container class="page text-center">
-
-    <h1 class="text-h4">
-      This is about us!
-    </h1>
-
-    <v-btn color="primary" to="/" class="mt-3">
-      Back to home
-    </v-btn>
-
-  </v-container>
+ <div class="container">
+   ddd
+ </div>
+ <div @click="handleClick">
+   222
+ </div>
 </template>
+<script setup>
+import { useStore } from 'vuex'
+const $store = useStore()
+   const handleClick = () => {
+      // 触发mutations，用于同步修改state的信息
+      // store.commit('updateInfo', 'nihao')
+      // 触发actions，用于异步修改state的信息
+      $store.dispatch('Config/changeEditShow')
+    }
+</script>

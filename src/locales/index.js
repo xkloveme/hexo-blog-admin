@@ -1,14 +1,14 @@
 /*
  * @Author: xkloveme
  * @Date: 2022-02-08 00:48:55
- * @LastEditTime: 2022-02-08 16:40:38
+ * @LastEditTime: 2022-02-13 17:53:50
  * @LastEditors: xkloveme
  * @Description: 国际化
- * @FilePath: /vite-tauri-template/src/locales/index.js
+ * @FilePath: /hexo-blog-admin/src/locales/index.js
  * @Copyright © xkloveme
  */
 import { createI18n } from 'vue-i18n'        //引入vue-i18n组件
-
+import store from '@/store'
 //引入同级目录下文件
 const modules = import.meta.globEager('./*')
 
@@ -43,11 +43,11 @@ function getLangFiles (mList, msg) {
   }
 }
 
-
 //注册i8n实例并引入语言文件
 const i18n = createI18n({
   legacy: false,
-  locale: localStorage.getItem('language') || 'zh-CN',
+  globalInjection: true, // 全局注册 $t方法
+  locale: store.getters['Config/getLanguage'] || 'zh-CN',
   gLobalInjection: true,
   messages: getLangAll()
 })
