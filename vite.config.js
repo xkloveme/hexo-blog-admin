@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import WindiCSS from 'vite-plugin-windicss'
 import { resolve } from 'path'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
@@ -16,10 +16,10 @@ export default defineConfig({
       include: [resolve(__dirname, 'src/locales/**')],
     }),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [NaiveUiResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [NaiveUiResolver()],
     }),
   ],
   resolve: {

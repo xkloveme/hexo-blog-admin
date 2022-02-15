@@ -1,5 +1,5 @@
 <template>
-  <el-config-provider :locale="locale">
+  <n-config-provider :locale="localZhCN" :date-locale="localdateZhCN">
     <splitpanes class="default-theme dark:my-theme" style="height: 100vh">
       <pane :size="5" :max-size="10" class="overflow-y-auto">
         <!-- <p>Navigation</p>
@@ -18,7 +18,7 @@
         <Edit></Edit>
       </pane>
     </splitpanes>
-  </el-config-provider>
+  </n-config-provider>
 </template>
 <script setup>
 import { Splitpanes, Pane } from "splitpanes";
@@ -30,10 +30,11 @@ import { useStore } from "vuex";
 const $store = useStore();
 const showEdit = computed(() => $store.state.Config.showEdit);
 const language = computed(() => $store.state.Config.language);
-import zhCN from "element-plus/lib/locale/lang/zh-cn";
-import En from "element-plus/lib/locale/lang/en";
+  import { NConfigProvider } from 'naive-ui'
+  import { zhCN, dateZhCN } from 'naive-ui'
 
-const locale = computed(() => (language.value == "zh-CN" ? zhCN : En));
+const localZhCN = computed(() => (language.value == "zh-CN" ? zhCN : null));
+const localdateZhCN = computed(() => (language.value == "zh-CN" ? dateZhCN : null));
 
 let theme = $store.state.Config.theme || "light";
 if (theme === "dark") {

@@ -9,182 +9,187 @@
 -->
 <template>
   <div class="p-1 h-full dark:text-gray-500 dark:bg-gray-900">
+    <n-button type="tertiary"> Tertiary </n-button>
     <div
       class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-center italic px-4 py-2 rounded cursor-default transition-all duration-400 hover:rounded-2xl dark:(from-teal-400 to-yellow-500)"
-      @click="change"
     >
       {{ t("settings") }}
     </div>
-    <el-divider border-style="dashed"></el-divider>
-    <el-form ref="formRef" :model="config" label-width="120px">
-      <el-form-item :label="t('settingTitlePath')">
-        <el-input v-model="config.path"></el-input>
-      </el-form-item>
-      <el-form-item :label="t('theme')">
-        <el-select
-          v-model="config.theme"
-          default-first-option
-          :placeholder="t('thesettingThemePlaceholderme')"
-          style="width: 100%"
+    <n-divider border-style="dashed"></n-divider>
+    <n-form
+      ref="formRef"
+      :model="config"
+      label-placement="left"
+      :label-width="160"
+    >
+      <n-form-item :label="t('settingTitlePath')">
+        <n-input v-model="config.path"></n-input>
+      </n-form-item>
+      <n-form-item :label="t('theme')">
+        <n-radio-group
+          v-model:value="config.theme"
+          name="light"
           @change="setTheme"
         >
-          <el-option :label="t('light')" value="light"></el-option>
-          <el-option :label="t('dark')" value="dark"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item :label="t('settingTitleLanguage')">
-        <el-select
-          v-model="config.language"
-          default-first-option
-          :placeholder="t('settingLanguagePlaceholder')"
-          style="width: 100%"
+          <n-space>
+            <n-radio value="light">{{ t("light") }}</n-radio>
+            <n-radio value="dark">{{ t("dark") }}</n-radio>
+          </n-space>
+        </n-radio-group>
+      </n-form-item>
+      <n-form-item :label="t('settingTitleLanguage')">
+        <n-radio-group
+          name="zh-CN"
+          v-model:value="config.language"
           @change="configLanguage"
         >
-          <el-option :label="t('chinese')" value="zh-CN"></el-option>
-          <el-option :label="t('english')" value="en-US"></el-option>
-        </el-select>
-      </el-form-item>
-      <!-- <el-form-item label="命令行自动部署">
-        <el-switch v-model="config.shellDeploy"></el-switch>
-      </el-form-item> -->
+          <n-space>
+            <n-radio value="zh-CN">{{ t("chinese") }}</n-radio>
+            <n-radio value="en-US">{{ t("english") }}</n-radio>
+          </n-space>
+        </n-radio-group>
+      </n-form-item>
+      <!-- <n-form-item label="命令行自动部署">
+        <n-switch v-model="config.shellDeploy"></n-switch>
+      </n-form-item> -->
 
-      <el-form-item :label="t('settingTitleImageServer')">
-        <el-select
+      <n-form-item :label="t('settingTitleImageServer')">
+        <!-- <n-select
           v-model="config.uploadType"
           default-first-option
           :placeholder="t('settingImageServerPlaceholder')"
           style="width: 100%"
         >
-          <el-option label="GitHub" value="github"></el-option>
-          <el-option label="七牛" value="qiniu"></el-option>
-          <el-option label="阿里云OSS" value="aliyunOss"></el-option>
-          <el-option label="腾讯云OSS" value="tencentOss"></el-option>
-          <el-option label="sm.ms" value="sm.ms"></el-option>
-        </el-select>
-      </el-form-item>
-      <transition name="el-zoom-in-top">
+          <n-option label="GitHub" value="github"></n-option>
+          <n-option label="七牛" value="qiniu"></n-option>
+          <n-option label="阿里云OSS" value="aliyunOss"></n-option>
+          <n-option label="腾讯云OSS" value="tencentOss"></n-option>
+          <n-option label="sm.ms" value="sm.ms"></n-option>
+        </n-select> -->
+      </n-form-item>
+      <!-- <transition name="n-zoom-in-top">
         <div v-show="config.uploadType === 'qiniu'">
-          <el-form-item label="七牛存储区域">
-            <el-select
+          <n-form-item label="七牛存储区域">
+            <n-select
               v-model="config.qiniuZone"
               default-first-option
               placeholder="请选择机房"
               style="width: 100%"
             >
-              <el-option label="华东" value="huadong"></el-option>
-              <el-option label="华北" value="huabei"></el-option>
-              <el-option label="华南" value="huanan"></el-option>
-              <el-option label="北美" value="beimei"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="AccessKey">
-            <el-input
+              <n-option label="华东" value="huadong"></n-option>
+              <n-option label="华北" value="huabei"></n-option>
+              <n-option label="华南" value="huanan"></n-option>
+              <n-option label="北美" value="beimei"></n-option>
+            </n-select>
+          </n-form-item>
+          <n-form-item label="AccessKey">
+            <n-input
               v-model="config.qiniuAccessKey"
               style="width: 100%"
               placeholder="七牛AccessKey"
             />
-          </el-form-item>
-          <el-form-item label="SecretKey">
-            <el-input
+          </n-form-item>
+          <n-form-item label="SecretKey">
+            <n-input
               v-model="config.qiniuSecretKey"
               style="width: 100%"
               placeholder="七牛SecretKey"
             />
-          </el-form-item>
-          <el-form-item label="Bucket">
-            <el-input
+          </n-form-item>
+          <n-form-item label="Bucket">
+            <n-input
               v-model="config.qiniuBucket"
               style="width: 100%"
               placeholder="七牛Bucket"
             />
-          </el-form-item>
-          <el-form-item label="Host">
-            <el-input
+          </n-form-item>
+          <n-form-item label="Host">
+            <n-input
               v-model="config.qiniuHost"
               style="width: 100%"
               placeholder="七牛Host"
             />
-          </el-form-item>
+          </n-form-item>
         </div>
       </transition>
 
-      <transition name="el-zoom-in-top">
+      <transition name="n-zoom-in-top">
         <div v-show="config.uploadType === 'aliyunOss'">
-          <el-form-item label="Endpoint">
-            <el-input
+          <n-form-item label="Endpoint">
+            <n-input
               v-model="config.aliyunOssEndpoint"
               style="width: 100%"
               placeholder="Aliyun oss endpoint"
             />
-          </el-form-item>
-          <el-form-item label="AccessId">
-            <el-input
+          </n-form-item>
+          <n-form-item label="AccessId">
+            <n-input
               v-model="config.aliyunOssAccessKeyId"
               style="width: 100%"
               placeholder="Aliyun oss accessKeyId"
             />
-          </el-form-item>
-          <el-form-item label="AccessSecret">
-            <el-input
+          </n-form-item>
+          <n-form-item label="AccessSecret">
+            <n-input
               v-model="config.aliyunOssAccessKeySecret"
               style="width: 100%"
               placeholder="Aliyun oss accessKeySecret"
             />
-          </el-form-item>
-          <el-form-item label="Bucket">
-            <el-input
+          </n-form-item>
+          <n-form-item label="Bucket">
+            <n-input
               v-model="config.aliyunOssBucket"
               style="width: 100%"
               placeholder="Aliyun oss bucket"
             />
-          </el-form-item>
-          <el-form-item label="Host">
-            <el-input
+          </n-form-item>
+          <n-form-item label="Host">
+            <n-input
               v-model="config.aliyunOssHost"
               style="width: 100%"
               placeholder="Aliyun oss host"
             />
-          </el-form-item>
+          </n-form-item>
         </div>
       </transition>
 
-      <transition name="el-zoom-in-top">
+      <transition name="n-zoom-in-top">
         <div v-show="config.uploadType === 'tencentOss'">
-          <el-form-item label="SecretId">
-            <el-input
+          <n-form-item label="SecretId">
+            <n-input
               v-model="config.tencentOssSecretId"
               style="width: 100%"
               placeholder="Tencent oss SecretId"
             />
-          </el-form-item>
-          <el-form-item label="SecretKey">
-            <el-input
+          </n-form-item>
+          <n-form-item label="SecretKey">
+            <n-input
               v-model="config.tencentOssSecretKey"
               style="width: 100%"
               placeholder="Tencent oss SecretKey"
             />
-          </el-form-item>
-          <el-form-item label="COS_REGION">
-            <el-input
+          </n-form-item>
+          <n-form-item label="COS_REGION">
+            <n-input
               v-model="config.tencentOssCOS_REGION"
               style="width: 100%"
               placeholder="Tencent oss COS_REGION"
             />
-          </el-form-item>
-          <el-form-item label="Bucket">
-            <el-input
+          </n-form-item>
+          <n-form-item label="Bucket">
+            <n-input
               v-model="config.tencentOssBucket"
               style="width: 100%"
               placeholder="Tencent oss bucket"
             />
-          </el-form-item>
+          </n-form-item>
         </div>
-      </transition>
+      </transition> -->
 
-      <el-form-item>
-        <el-button type="primary" @click="submitForm">{{ t("save") }}</el-button>
-      </el-form-item>
-    </el-form>
+      <n-form-item>
+        <n-button type="primary" @click="submitForm">{{ t("save") }}</n-button>
+      </n-form-item>
+    </n-form>
   </div>
 </template>
 
@@ -225,29 +230,30 @@ function configLanguage() {
 }
 
 // 切换明暗主题
-const setTheme = function() {
+const setTheme = function () {
+  console.log(2222, config.theme);
   $store.commit("Config/updateTheme", config.theme);
-  let theme = $store.state.Config.theme || 'light'
-  if (theme === 'dark') {
-    document.querySelector('html').classList.add('dark')
+  let theme = $store.state.Config.theme || "light";
+  if (theme === "dark") {
+    document.querySelector("html").classList.add("dark");
   } else {
-    document.querySelector('html').classList.remove('dark')
+    document.querySelector("html").classList.remove("dark");
   }
-}
+};
 const submitForm = (formEl) => {
-  if (!formEl) return
+  if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
-      console.log('submit!')
+      console.log("submit!");
     } else {
-      console.log('error submit!')
-      return false
+      console.log("error submit!");
+      return false;
     }
-  })
-}
+  });
+};
 
 const resetForm = (formEl) => {
-  if (!formEl) return
-  formEl.resetFields()
-}
+  if (!formEl) return;
+  formEl.resetFields();
+};
 </script>
