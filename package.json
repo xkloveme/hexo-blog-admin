@@ -23,6 +23,7 @@
     "@bytemd/plugin-gfm": "^1.10.13",
     "@bytemd/plugin-highlight-ssr": "^1.10.13",
     "@bytemd/plugin-medium-zoom": "^1.10.13",
+    "@element-plus/icons-vue": "^0.2.7",
     "@tauri-apps/api": "1.0.0-beta.8",
     "bytemd": "^1.10.13",
     "element-plus": "^2.0.1",

@@ -1,21 +1,36 @@
 <!--
  * @Author: xkloveme
  * @Date: 2022-02-13 15:11:13
- * @LastEditTime: 2022-02-13 17:52:21
+ * @LastEditTime: 2022-02-15 13:06:38
  * @LastEditors: xkloveme
  * @Description: 设置页
  * @FilePath: /hexo-blog-admin/src/pages/setting/index.vue
  * @Copyright © xkloveme
 -->
 <template>
-  <el-date-picker v-model="config.path" type="date" placeholder="Pick a day">
-  </el-date-picker>
-  <div class="p-1">
-    <h1 class="mt-2">{{ t("settings") }}</h1>
+  <div class="p-1 h-full dark:text-gray-500 dark:bg-gray-900">
+    <div
+      class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-center italic px-4 py-2 rounded cursor-default transition-all duration-400 hover:rounded-2xl dark:(from-teal-400 to-yellow-500)"
+      @click="change"
+    >
+      {{ t("settings") }}
+    </div>
     <el-divider border-style="dashed"></el-divider>
     <el-form ref="formRef" :model="config" label-width="120px">
       <el-form-item :label="t('settingTitlePath')">
         <el-input v-model="config.path"></el-input>
+      </el-form-item>
+      <el-form-item :label="t('theme')">
+        <el-select
+          v-model="config.theme"
+          default-first-option
+          :placeholder="t('thesettingThemePlaceholderme')"
+          style="width: 100%"
+          @change="setTheme"
+        >
+          <el-option :label="t('light')" value="light"></el-option>
+          <el-option :label="t('dark')" value="dark"></el-option>
+        </el-select>
       </el-form-item>
       <el-form-item :label="t('settingTitleLanguage')">
         <el-select
@@ -167,7 +182,7 @@
       </transition>
 
       <el-form-item>
-        <el-button type="primary" @click="saveConfig">{{ t("save") }}</el-button>
+        <el-button type="primary" @click="submitForm">{{ t("save") }}</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -181,6 +196,7 @@ const { t, locale } = useI18n({ useScope: "global" });
 const config = reactive({
   base: "",
   path: "",
+  theme: $store.state.Config.theme,
   language: $store.state.Config.language,
   uploadType: "",
   qiniuZone: "",
@@ -206,5 +222,32 @@ const onSubmit = () => {
 function configLanguage() {
   $store.commit("Config/updateLanguage", config.language);
   locale.value = config.language;
+}
+
+// 切换明暗主题
+const setTheme = function() {
+  $store.commit("Config/updateTheme", config.theme);
+  let theme = $store.state.Config.theme || 'light'
+  if (theme === 'dark') {
+    document.querySelector('html').classList.add('dark')
+  } else {
+    document.querySelector('html').classList.remove('dark')
+  }
+}
+const submitForm = (formEl) => {
+  if (!formEl) return
+  formEl.validate((valid) => {
+    if (valid) {
+      console.log('submit!')
+    } else {
+      console.log('error submit!')
+      return false
+    }
+  })
+}
+
+const resetForm = (formEl) => {
+  if (!formEl) return
+  formEl.resetFields()
 }
 </script>

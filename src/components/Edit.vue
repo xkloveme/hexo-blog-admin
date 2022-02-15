@@ -1,7 +1,7 @@
 <!--
  * @Author: xkloveme
  * @Date: 2022-02-13 12:05:56
- * @LastEditTime: 2022-02-13 17:15:40
+ * @LastEditTime: 2022-02-15 11:47:44
  * @LastEditors: xkloveme
  * @Description: 编辑器
  * @FilePath: /hexo-blog-admin/src/components/Edit.vue
@@ -21,6 +21,7 @@ import mediumZoom from "@bytemd/plugin-medium-zoom";
 import gemoji from "@bytemd/plugin-gemoji";
 // 引入中文包
 import zhHans from "bytemd/lib/locales/zh_Hans.json";
+import gfmzhHans from "@bytemd/plugin-gfm/lib/locales/zh_Hans.json";
 import { useStore } from 'vuex'
 const $store = useStore()
 
@@ -29,7 +30,7 @@ import 'bytemd/dist/index.min.css';
 // 引入高亮css
 import "highlight.js/styles/vs.css";
 
-const language = computed(() => $store.state.Config.language=='zh-CN' ? zhHans:null);
+const language = computed(() => $store.state.Config.language=='zh-CN' ? {...zhHans,...gfmzhHans}:null);
 const editContent = ref('');
 const plugins = reactive([gfm(), gemoji(), highlight(), mediumZoom()]);
 

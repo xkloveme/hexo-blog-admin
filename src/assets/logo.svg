@@ -1,1 +1,13 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.5 100"><defs><style>.cls-1{fill:#1697f6;}.cls-2{fill:#7bc6ff;}.cls-3{fill:#1867c0;}.cls-4{fill:#aeddff;}</style></defs><title>Artboard 46</title><polyline class="cls-1" points="43.75 0 23.31 0 43.75 48.32"/><polygon class="cls-2" points="43.75 62.5 43.75 100 0 14.58 22.92 14.58 43.75 62.5"/><polyline class="cls-3" points="43.75 0 64.19 0 43.75 48.32"/><polygon class="cls-4" points="64.58 14.58 87.5 14.58 43.75 100 43.75 62.5 64.58 14.58"/></svg>
+  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin slice" overflow="visible" class="w-6 h-6 fill-current">
+ <g>
+  <title>background</title>
+  <rect y="-1" x="-1" width="202" height="202" id="canvas_background" fill="none"/>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null" id="svg_2">
+   <path stroke="null" id="svg_1" d="m81.22369,99.09873l-1.6031,-36.86365l-59.84904,0l0,37.9605l-19.77155,-94.09054l9.88578,-5.05504l9.88577,5.15042l0,37.91281l59.84904,0l0,-37.9605l9.88578,-5.05504l9.88578,5.15042l-18.16846,92.85062l0.00001,0l0.00001,0z" fill="#ea4336" stroke-width="0" stroke-dasharray="2,2"/>
+  </g>
+ </g>
+</svg>

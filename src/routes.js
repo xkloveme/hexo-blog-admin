@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomePage from './pages/home/home-page.vue';
+import HomePage from './pages/home/index.vue';
 
 
 export default createRouter({
@@ -13,6 +13,10 @@ export default createRouter({
     {
       path: '/about-us',
       component: () => import('./pages/about/about-us-page.vue' /* webpackChunkName: "about-us-page" */)
+    },
+    {
+      path: '/about',
+      component: () => import('./pages/about/index.vue' /* webpackChunkName: "about" */)
     },
     {
       path: '/setting',
