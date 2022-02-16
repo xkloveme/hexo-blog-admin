@@ -21,6 +21,10 @@ export default createRouter({
     {
       path: '/setting',
       component: () => import('./pages/setting/index.vue' /* webpackChunkName: "about-us-page" */)
+    },
+    {
+      path: '/test',
+      component: () => import('./pages/test/index.vue' /* webpackChunkName: "test" */)
     }
   ]
 });
