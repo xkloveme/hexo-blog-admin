@@ -1,8 +1,5 @@
-import zhLocale from 'element-plus/lib/locale/lang/zh-cn'
-
 export default {
   "language": "中文",
-  ...zhLocale,
   "name": "HEXO 后台博客系统",
   "new": "新建",
   "search": "搜索",

@@ -15,7 +15,6 @@
     >
       {{ t("menuAbout") }}
     </div>
-    <el-divider border-style="dashed"></el-divider>
     <section class="p-4 t-page-position bg-secondary">
       <h1 class="mb-2">{{ t("name") }}</h1>
       <h2 class="my-2">支持应用</h2>
