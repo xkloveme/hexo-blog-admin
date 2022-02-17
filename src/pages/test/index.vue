@@ -1,5 +1,5 @@
 <template>
-  <div lass="p-1 h-full dark:text-gray-500 dark:bg-gray-900">
+  <div class="p-1 h-full dark:text-gray-500 dark:bg-gray-900">
     <n-divider />
 
     <n-button @click="handleClick"> 打开edit </n-button>

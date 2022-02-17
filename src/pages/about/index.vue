@@ -1,14 +1,14 @@
 <!--
  * @Author: xkloveme
  * @Date: 2022-02-13 17:58:34
- * @LastEditTime: 2022-02-13 20:55:58
+ * @LastEditTime: 2022-02-17 17:48:45
  * @LastEditors: xkloveme
  * @Description: 关于
  * @FilePath: /hexo-blog-admin/src/pages/about/index.vue
  * @Copyright © xkloveme
 -->
 <template>
-  <div class="p-1">
+  <div class="p-1 h-full text-gray-700  dark:text-gray-500 dark:bg-gray-900">
     <div
       class="bg-gradient-to-r from-red-400 to- bg-yellow-300 text-white text-center italic px-4 py-2 rounded cursor-default transition-all duration-400 hover:rounded-2xl dark:(from-teal-400 to-blue-700)"
       @click="change"
@@ -32,7 +32,7 @@
             当然您的鼓励会让我走的更远.]</code
           >
         </li>
-        <img src="https://s1.ax1x.com/2020/07/05/UpeRIA.jpg" alt="" />
+        <n-image width="100" src="https://s1.ax1x.com/2020/07/05/UpeRIA.jpg" alt="" />
       </ul>
       <h2 class="my-2">感谢</h2>
       <ul class="list-disc list-inside break-words">

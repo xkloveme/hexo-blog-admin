@@ -4,24 +4,18 @@
     :date-locale="localdateZhCN"
     :theme="mydarkTheme"
   >
-    <splitpanes class="default-theme dark:my-theme" style="height: 100vh">
-      <pane :size="5" :max-size="10" class="overflow-y-auto">
-        <!-- <p>Navigation</p>
-      <ul>
-        <li><router-link to="/">Home view</router-link></li>
-        <li><router-link to="/about-us">Another view</router-link></li>
-        <li><router-link to="/setting">settting</router-link></li>
-        <li><router-link to="/about">about</router-link></li>
-      </ul> -->
+    <splitpanes class="default-theme" style="height: 100vh" @resize="resize">
+      <pane :max-size="10" :size="size" class="overflow-y-auto">
         <Menu />
       </pane>
       <pane
-        style="overflow-y: auto"
-        class="dark:text-gray-500 dark:bg-gray-900"
+        :size="100 - size - editSize"
+        :style="{ width: `${100 - size - editSize}%` }"
+        class="overflow-y-auto dark:text-gray-500 dark:bg-gray-900"
       >
         <router-view />
       </pane>
-      <pane :min-size="20" :size="70" v-if="showEdit">
+      <pane :min-size="10" :size="editSize" v-if="showEdit">
         <Edit></Edit>
       </pane>
     </splitpanes>
@@ -43,10 +37,18 @@ const language = computed(() => $store.state.Config.language);
 const theme = computed(() => $store.state.Config.theme);
 
 const localZhCN = computed(() => (language.value == "zh-CN" ? zhCN : null));
-const localdateZhCN = computed(() =>
-  language.value == "zh-CN" ? dateZhCN : null
-);
+const localdateZhCN = computed(() => (language.value == "zh-CN" ? dateZhCN : null));
 const mydarkTheme = computed(() => (theme.value == "dark" ? darkTheme : null));
+const color = computed(() =>
+  theme.value == "dark" ? "rgba(0, 0, 0, 0.8)" : "rgba(255, 255, 255, 0.5)"
+);
+let size = ref(8);
+let editSize = computed(() => (showEdit.value ? 50 : 0));
+function resize(paneSize) {
+  size.value = paneSize[0].size;
+  editSize.value = paneSize[2].size;
+}
+
 onMounted(() => {
   if (theme.value === "dark") {
     document.querySelector("html").classList.add("dark");
@@ -58,10 +60,12 @@ onMounted(() => {
 <style lang="scss">
 .splitpanes {
   &--vertical > &__splitter {
-    background: red;
+    background: v-bind(color) !important;
+    border-left: 1px solid v-bind(color) !important;
   }
   &--horizontal > &__splitter {
-    background: red;
+    background: v-bind(color) !important;
+    border-left: 1px solid v-bind(color) !important;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <!--
  * @Author: xkloveme
  * @Date: 2022-02-13 15:11:13
- * @LastEditTime: 2022-02-15 13:06:38
+ * @LastEditTime: 2022-02-17 17:49:34
  * @LastEditors: xkloveme
  * @Description: 设置页
  * @FilePath: /hexo-blog-admin/src/pages/setting/index.vue
@@ -9,7 +9,6 @@
 -->
 <template>
   <div class="p-1 h-full dark:text-gray-500 dark:bg-gray-900">
-    <n-button type="tertiary"> Tertiary </n-button>
     <div
       class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-center italic px-4 py-2 rounded cursor-default transition-all duration-400 hover:rounded-2xl dark:(from-teal-400 to-yellow-500)"
     >

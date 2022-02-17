@@ -1,6 +1,6 @@
 {
   "package": {
-    "productName": "vite-tauri-template",
+    "productName": "hexo-blog-admin",
     "version": "0.1.0"
   },
   "build": {
@@ -55,9 +55,9 @@
     },
     "windows": [
       {
-        "title": "Vite Tauri Template",
-        "width": 800,
-        "height": 600,
+        "title": "Hexo Blog Admin",
+        "width": 900,
+        "height": 700,
         "resizable": true,
         "fullscreen": false
       }

@@ -1,41 +1,36 @@
 <!--
  * @Author: xkloveme
  * @Date: 2022-02-14 13:25:48
- * @LastEditTime: 2022-02-15 13:29:19
+ * @LastEditTime: 2022-02-17 13:40:01
  * @LastEditors: xkloveme
  * @Description: 菜单
  * @FilePath: /hexo-blog-admin/src/components/menu.vue
  * @Copyright © xkloveme
 -->
 <template>
-  <div
-    class="flex w-full h-screen text-gray-700 dark:text-gray-500 dark:bg-gray-900"
-  >
+  <div class="flex w-full h-screen text-gray-700 dark:text-gray-500 dark:bg-gray-900">
     <div
       class="flex flex-col items-center flex-shrink-0 w-full border-r border-gray-300 bg-gray-200 dark:text-gray-500 dark:bg-gray-900 py-3"
     >
-      <a
-        class="flex items-center justify-center flex-shrink-0 w-16 h-16 p-2"
-        href="#"
-      >
-      <router-link to="/test">
-        <n-image
-          class="w-full h-full select-none"
-          src="/src/assets/logo.png"
-          fit="fill"
-        ></n-image>
+      <a class="flex items-center justify-center flex-shrink-0 w-16 h-16 p-2" href="#">
+        <router-link to="/test">
+          <n-avatar
+            size="large"
+            class="w-full h-full select-none bg-gray-200 dark:bg-gray-900"
+            src="/src/assets/logo.png"
+            fit="fill"
+          ></n-avatar>
         </router-link>
       </a>
       <!-- 首页 -->
       <router-link to="/">
         <a
           class="flex items-center justify-center flex-shrink-0 w-15 h-15 p-2 mt-4 rounded hover:bg-gray-400 dark:hover:bg-gray-800 dark:text-gray-500"
-          :class="
-            route.path == '/' ? 'bg-gray-300 text-primary text-green-700' : ''
-          "
+          :class="route.path == '/' ? 'bg-gray-300 text-primary text-green-700' : ''"
           href="#"
         >
           <svg
+           class="w-8 h-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 512 512"
@@ -56,12 +51,11 @@
         <a
           class="flex items-center justify-center flex-shrink-0 w-15 h-15 p-2 mt-4 rounded hover:bg-gray-400 dark:hover:bg-gray-800 dark:text-gray-500"
           :class="
-            route.path == '/setting'
-              ? 'bg-gray-300 text-primary text-green-700'
-              : ''
+            route.path == '/setting' ? 'bg-gray-300 text-primary text-green-700' : ''
           "
         >
           <svg
+           class="w-8 h-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
@@ -78,13 +72,10 @@
       <router-link to="/about">
         <a
           class="flex items-center justify-center flex-shrink-0 w-15 h-15 p-2 mt-4 rounded hover:bg-gray-400 dark:hover:bg-gray-800 dark:text-gray-500"
-          :class="
-            route.path == '/about'
-              ? 'bg-gray-300 text-primary text-green-700'
-              : ''
-          "
+          :class="route.path == '/about' ? 'bg-gray-300 text-primary text-green-700' : ''"
         >
           <svg
+           class="w-8 h-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
@@ -107,7 +98,7 @@
         href="#"
       >
         <svg
-          class="w-6 h-6 fill-current"
+          class="w-10 h-10 fill-current"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
