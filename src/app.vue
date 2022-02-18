@@ -10,13 +10,12 @@
       </pane>
       <pane
         :size="100 - size - editSize"
-        :style="{ width: `${100 - size - editSize}%` }"
         class="overflow-y-auto dark:text-gray-500 dark:bg-gray-900"
       >
         <router-view />
       </pane>
-      <pane :min-size="10" :size="editSize" v-if="showEdit">
-        <Edit></Edit>
+      <pane :min-size="10"  :max-size="80" :size="editSize" v-show="showEdit">
+        <Edit v-if="showEdit"></Edit>
       </pane>
     </splitpanes>
   </n-config-provider>

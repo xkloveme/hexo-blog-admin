@@ -1,13 +1,1 @@
-  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin slice" overflow="visible" class="w-6 h-6 fill-current">
- <g>
-  <title>background</title>
-  <rect y="-1" x="-1" width="202" height="202" id="canvas_background" fill="none"/>
- </g>
-
- <g>
-  <title>Layer 1</title>
-  <g stroke="null" id="svg_2">
-   <path stroke="null" id="svg_1" d="m81.22369,99.09873l-1.6031,-36.86365l-59.84904,0l0,37.9605l-19.77155,-94.09054l9.88578,-5.05504l9.88577,5.15042l0,37.91281l59.84904,0l0,-37.9605l9.88578,-5.05504l9.88578,5.15042l-18.16846,92.85062l0.00001,0l0.00001,0z" fill="#ea4336" stroke-width="0" stroke-dasharray="2,2"/>
-  </g>
- </g>
-</svg>
+     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="m81.22369,99.09873l-1.6031,-36.86365l-59.84904,0l0,37.9605l-19.77155,-94.09054l9.88578,-5.05504l9.88577,5.15042l0,37.91281l59.84904,0l0,-37.9605l9.88578,-5.05504l9.88578,5.15042l-18.16846,92.85062l0.00001,0l0.00001,0z" fill="#ea4336"></path></g></svg>

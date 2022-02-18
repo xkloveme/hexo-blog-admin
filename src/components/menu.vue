@@ -1,7 +1,7 @@
 <!--
  * @Author: xkloveme
  * @Date: 2022-02-14 13:25:48
- * @LastEditTime: 2022-02-17 13:40:01
+ * @LastEditTime: 2022-02-18 22:43:33
  * @LastEditors: xkloveme
  * @Description: 菜单
  * @FilePath: /hexo-blog-admin/src/components/menu.vue
@@ -12,14 +12,27 @@
     <div
       class="flex flex-col items-center flex-shrink-0 w-full border-r border-gray-300 bg-gray-200 dark:text-gray-500 dark:bg-gray-900 py-3"
     >
+      <!-- logo -->
       <a class="flex items-center justify-center flex-shrink-0 w-16 h-16 p-2" href="#">
         <router-link to="/test">
-          <n-avatar
-            size="large"
-            class="w-full h-full select-none bg-gray-200 dark:bg-gray-900"
-            src="/src/assets/logo.png"
-            fit="fill"
-          ></n-avatar>
+          <svg
+            version="1.1"
+            class="w-12 h-12 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 100 100"
+            enable-background="new 0 0 100 100"
+            xml:space="preserve"
+          >
+            <g>
+              <path
+                d="m81.22369,99.09873l-1.6031,-36.86365l-59.84904,0l0,37.9605l-19.77155,-94.09054l9.88578,-5.05504l9.88577,5.15042l0,37.91281l59.84904,0l0,-37.9605l9.88578,-5.05504l9.88578,5.15042l-18.16846,92.85062l0.00001,0l0.00001,0z"
+                fill="#ea4336"
+              ></path>
+            </g>
+          </svg>
         </router-link>
       </a>
       <!-- 首页 -->
@@ -30,7 +43,7 @@
           href="#"
         >
           <svg
-           class="w-8 h-8 fill-current"
+            class="w-8 h-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 512 512"
@@ -55,7 +68,7 @@
           "
         >
           <svg
-           class="w-8 h-8 fill-current"
+            class="w-8 h-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
@@ -75,7 +88,7 @@
           :class="route.path == '/about' ? 'bg-gray-300 text-primary text-green-700' : ''"
         >
           <svg
-           class="w-8 h-8 fill-current"
+            class="w-8 h-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 24 24"
