@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+  "settings": {
+    "vue-i18n.i18nPaths": "src/locales"
+  }
+}

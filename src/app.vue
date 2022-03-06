@@ -14,7 +14,7 @@
       >
         <router-view />
       </pane>
-      <pane :min-size="10"  :max-size="80" :size="editSize" v-show="showEdit">
+      <pane :min-size="10" :max-size="80" :size="editSize" v-show="showEdit">
         <Edit v-if="showEdit"></Edit>
       </pane>
     </splitpanes>
